@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Map Set</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #oldShow,#newShow,#newPrintf,#oldPrintf{
+            width: 200px;
+            height: 40px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <p>可查询的人有 Michael Bob Tracy</p>
+    <input type="text" id="oldPrintf" placeholder="输入想要查询的人的名字">
+    <input type="button" id="oldButton" value="点击查看成绩">
+    <input type="text" id="oldShow"><br>
+    <input type="text" id="newPrintf" placeholder="输入想要查询的人的名字">
+    <input type="button" id="newButton" value="点击查看成绩">
+    <input type="text" id="newShow">
+</body>
+<script type="text/javascript">
+    "use strict"
+    var m = new Map();
+    var s = new Set();
+//    alert("你的浏览器支持ES6。");
+
+    //Map是一组键值对的结构，具有极快的查找速度。
+    //举个例子，根据名字查找对应的成绩
+    //oldShow
+    var op = document.getElementById("oldPrintf");
+    var ob = document.getElementById("oldButton");
+    var os = document.getElementById("oldShow");
+    var np = document.getElementById("newPrintf");
+    var nb = document.getElementById("newButton");
+    var ns = document.getElementById("newShow");
+
+    var names = ["Michael","Bob","Tracy"];
+    var scores = [95,70,86];
+
+    function isInArr(arr,obj) {
+        console.log(typeof arr);
+        var i = arr.length;
+        while (i--){
+            if(arr[i] == obj){
+                return i;
+            }
+        }
+        return false;
+    }
+
+    //绑定点击事件
+    ob.onclick = function () {
+        if(op.value == ""){
+            alert("请输入名字");
+            return;
+        }
+        os.value = scores[isInArr(names,op.value)] ? os.value = scores[isInArr(names,op.value)] : alert("输入的名字不在");
+    }
+    nb.onclick = function () {
+
+    }
+
+</script>
+</html>
