@@ -1,0 +1,1 @@
+This file records the process of I learn javascript every day.
