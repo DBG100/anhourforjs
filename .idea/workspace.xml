@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="137f4632-bc59-45c7-ad55-dccade6f5a7b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mapset.html" afterPath="$PROJECT_DIR$/mapset.html" />
     </list>
     <ignored path="anhourjs.iws" />
@@ -189,12 +188,12 @@
       <option name="presentableId" value="Default" />
       <updated>1488857448371</updated>
       <workItem from="1488857449575" duration="13053000" />
-      <workItem from="1488942364406" duration="6757000" />
+      <workItem from="1488942364406" duration="7063000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19810000" />
+    <option name="totallyTimeSpent" value="20116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="2044" height="1129" extended-state="6" />
