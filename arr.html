@@ -8,7 +8,7 @@
             margin: 0;
             padding: 0;
         }
-        #arr_up,#arr_showup,#arr_down,#arr_showdown,#arr_reverse,#arr_showreverse{
+        #arr_up,#arr_showup,#arr_down,#arr_showdown,#arr_reverse,#arr_showreverse,#arr_add,#arr_showadd,#arr_addnum,#arr_initial{
             width: 400px;
             height: 50px;
         }
@@ -24,6 +24,11 @@
     <input type="text" id="arr_reverse" placeholder="请输入元素，以逗号隔开">
     <input type="button" id="arr_reverse_button" value="点击倒序排列">
     <input type="text" id="arr_showreverse"><br>
+    <input type="text" id="arr_initial" placeholder="请输入初始的数组，元素以逗号隔开">
+    <input type="text" id="arr_add" placeholder="输入想要添加的元素">
+    <input type="text" id="arr_addnum" placeholder="输入想要添加的位置">
+    <input type="button" id="arr_add_button" value="点击生成新数组">
+    <input type="text" id="arr_showadd"><br>
 </body>
 <script type="text/javascript">
     //数组排序
@@ -76,9 +81,45 @@
     }
 
     //增
+    var arrInitial = document.getElementById("arr_initial");
+    var arrAdd = document.getElementById("arr_add");
+    var arrAddNum = document.getElementById("arr_addnum");
+    var arrAddBut = document.getElementById("arr_add_button");
+    var arrShowAdd = document.getElementById("arr_showadd");
+
+    function getArr(str) {
+        var tempArr = str.split(",");
+        return tempArr;
+    }
 
 
+    arrAddBut.onclick = function () {
 
-
+        if(arrInitial.value == ""||arrAdd.value == ""||arrAddNum.value == ""){
+            alert("请完善输入的信息！");
+            return;
+        }else{
+            console.log(arrInitial.value);
+            console.log(typeof arrAdd.value);
+            console.log(typeof arrAddNum.value);
+            var tempArr = getArr(arrInitial.value);
+            console.log(tempArr);
+            var arr2 = tempArr.splice(arrAddNum.value,1,arrAdd.value);
+            console.log(arr2);
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </script>
 </html>
