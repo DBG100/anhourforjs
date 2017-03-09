@@ -84,10 +84,10 @@
         if(np.value == ""){
             alert("请输入名字");
             return;
-        }else if(grade.has(np.value) === false){//是否存在key np.value   true/false
+        } else if(grade.has(np.value) === false){//是否存在key np.value   true/false
             alert("输入的名字不在查找范围内");
             return;
-        }else {
+        } else {
             return ns.value = grade.get(np.value);//得到key的value
         }
     }

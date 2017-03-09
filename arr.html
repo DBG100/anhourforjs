@@ -8,23 +8,57 @@
             margin: 0;
             padding: 0;
         }
-        #arr_lower,#arr_showLower{
+        #arr_up,#arr_showup,#arr_down,#arr_showdown{
             width: 400px;
             height: 50px;
         }
     </style>
 </head>
 <body>
-    <input type="text" id="arr_lower" placeholder="请输入数组">
-    <input type="button" id="arr_lower_button" value="点击从小到大排序">
-    <input type="text" id="arr_showLower"><br>
+    <input type="text" id="arr_up" placeholder="请输入数字，以逗号隔开">
+    <input type="button" id="arr_up_button" value="点击从小到大排序">
+    <input type="text" id="arr_showup"><br>
+    <input type="text" id="arr_down" placeholder="请输入数字，以逗号隔开">
+    <input type="button" id="arr_down_button" value="点击从大到小排序">
+    <input type="text" id="arr_showdown"><br>
 </body>
 <script type="text/javascript">
     //数组排序
     //从小到大
-    var arrLower = document.getElementById("arr_lower");
-    var arrLowerBut = document.getElementById("arr_lower_button");
-    var arrShowLower = document.getElementById("arr_showLower");
+    var arrUp = document.getElementById("arr_up");
+    var arrUpBut = document.getElementById("arr_up_button");
+    var arrShowUp = document.getElementById("arr_showup");
+
+    //定义sortby函数
+    function toUp(a,b) {
+        return a - b;
+    }
+    function toDown(a,b) {
+        return b - a;
+    }
+    arrUpBut.onclick = function () {
+        if (arrUp.value == ""){
+            alert("输入不能为空！");
+            return;
+        } else {
+            var tempArr = arrUp.value.split(",");
+            return arrShowUp.value = tempArr.sort(toUp);
+        }
+    }
+
+    var arrDown = document.getElementById("arr_down");
+    var arrDownBut = document.getElementById("arr_down_button");
+    var arrShowDown = document.getElementById("arr_showdown");
+    arrDownBut.onclick = function () {
+        if (arrDown.value == ""){
+            alert("输入不能为空！");
+            return;
+        }else{
+            var tempArr = arrDown.value.split(",");
+            return arrShowDown.value = tempArr.sort(toDown);
+        }
+    }
+
 
 </script>
 </html>
