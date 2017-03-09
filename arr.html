@@ -8,7 +8,7 @@
             margin: 0;
             padding: 0;
         }
-        #arr_up,#arr_showup,#arr_down,#arr_showdown{
+        #arr_up,#arr_showup,#arr_down,#arr_showdown,#arr_reverse,#arr_showreverse{
             width: 400px;
             height: 50px;
         }
@@ -21,6 +21,9 @@
     <input type="text" id="arr_down" placeholder="请输入数字，以逗号隔开">
     <input type="button" id="arr_down_button" value="点击从大到小排序">
     <input type="text" id="arr_showdown"><br>
+    <input type="text" id="arr_reverse" placeholder="请输入元素，以逗号隔开">
+    <input type="button" id="arr_reverse_button" value="点击倒序排列">
+    <input type="text" id="arr_showreverse"><br>
 </body>
 <script type="text/javascript">
     //数组排序
@@ -45,7 +48,7 @@
             return arrShowUp.value = tempArr.sort(toUp);
         }
     }
-
+    //从大到小
     var arrDown = document.getElementById("arr_down");
     var arrDownBut = document.getElementById("arr_down_button");
     var arrShowDown = document.getElementById("arr_showdown");
@@ -58,6 +61,23 @@
             return arrShowDown.value = tempArr.sort(toDown);
         }
     }
+    //倒序
+    var arrReverse = document.getElementById("arr_reverse");
+    var arrReverseBut = document.getElementById("arr_reverse_button");
+    var arrShowReverse = document.getElementById("arr_showreverse");
+    arrReverseBut.onclick = function () {
+        if (arrReverse.value == ""){
+            alert("输入不能为空");
+            return;
+        }else{
+            var tempArr =  arrReverse.value.split(",");
+            return arrShowReverse.value = tempArr.reverse();
+        }
+    }
+
+    //增
+
+
 
 
 </script>
