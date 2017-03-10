@@ -8,7 +8,7 @@
             margin: 0;
             padding: 0;
         }
-        #arr_up,#arr_showup,#arr_down,#arr_showdown,#arr_reverse,#arr_showreverse,#arr_add,#arr_showadd,#arr_addnum,#arr_initial,#arr_initial2,#arr_delete,#arr_deletenum,#arr_showdelete{
+        #arr_up,#arr_showup,#arr_down,#arr_showdown,#arr_reverse,#arr_showreverse,#arr_add,#arr_showadd,#arr_addnum,#arr_initial,#arr_initial2,#arr_delete,#arr_deletenum,#arr_showdelete,#arr_join,#arr_showjoin,#arr_showjoin2{
             width: 400px;
             height: 50px;
         }
@@ -38,6 +38,16 @@
     <input type="text" id="arr_deletenum" placeholder="输入想要替换的元素的位置">
     <input type="button" id="arr_delete_button" value="点击生成新数组">
     <input type="text" id="arr_showdelete"><br>
+
+    <input type="text" id="arr_join" placeholder="请输入数组，元素以逗号隔开">
+    <input type="button" id="arr_join_button" value="点击转化成字符串">
+    <input type="text" id="arr_showjoin">
+    <input type="text" id="arr_showjoin2"><br>
+
+
+
+
+
 </body>
 <script type="text/javascript">
     //数组排序
@@ -113,7 +123,7 @@
         }
     }
     
-    //删(替换)
+    //删改查(替换)
     var arrInitial2 = document.getElementById("arr_initial2");
     var arrDelete  = document.getElementById("arr_delete");
     var arrDeleteNum = document.getElementById("arr_deletenum");
@@ -125,12 +135,29 @@
             alert("请完善输入的信息！");
             return;
         }else{
-            var tempArr = arrInitial2.value.split(",");
+            var tempArr = getArr(arrInitial2.value);
             var arr3 = tempArr.splice(arrDeleteNum.value-1,1,arrDelete.value);
             return arrShowDelete.value = tempArr;
         }
     }
-    
+
+    //join
+    var arrJoin = document.getElementById("arr_join");
+    var arrJoinBut = document.getElementById("arr_join_button");
+    var arrShowJoin = document.getElementById("arr_showjoin")
+    var arrShowJoin2 = document.getElementById("arr_showjoin2")
+
+    arrJoinBut.onclick = function () {
+        if (arrJoin.value == ""){
+            alert("输入信息不能为空");
+            return;
+        }else {
+            var tempArr = getArr(arrJoin.value);
+            arrShowJoin.value = tempArr.join("");
+            arrShowJoin2.value = tempArr.join("-");
+        }
+    }
+
     
     
     
