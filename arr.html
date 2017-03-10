@@ -8,7 +8,7 @@
             margin: 0;
             padding: 0;
         }
-        #arr_up,#arr_showup,#arr_down,#arr_showdown,#arr_reverse,#arr_showreverse,#arr_add,#arr_showadd,#arr_addnum,#arr_initial{
+        #arr_up,#arr_showup,#arr_down,#arr_showdown,#arr_reverse,#arr_showreverse,#arr_add,#arr_showadd,#arr_addnum,#arr_initial,#arr_initial2,#arr_delete,#arr_deletenum,#arr_showdelete{
             width: 400px;
             height: 50px;
         }
@@ -18,17 +18,26 @@
     <input type="text" id="arr_up" placeholder="请输入数字，以逗号隔开">
     <input type="button" id="arr_up_button" value="点击从小到大排序">
     <input type="text" id="arr_showup"><br>
+
     <input type="text" id="arr_down" placeholder="请输入数字，以逗号隔开">
     <input type="button" id="arr_down_button" value="点击从大到小排序">
     <input type="text" id="arr_showdown"><br>
+
     <input type="text" id="arr_reverse" placeholder="请输入元素，以逗号隔开">
     <input type="button" id="arr_reverse_button" value="点击倒序排列">
     <input type="text" id="arr_showreverse"><br>
+
     <input type="text" id="arr_initial" placeholder="请输入初始的数组，元素以逗号隔开">
     <input type="text" id="arr_add" placeholder="输入想要添加的元素">
     <input type="text" id="arr_addnum" placeholder="输入想要添加的位置">
     <input type="button" id="arr_add_button" value="点击生成新数组">
     <input type="text" id="arr_showadd"><br>
+
+    <input type="text" id="arr_initial2" placeholder="请输入初始的数组，元素以逗号隔开">
+    <input type="text" id="arr_delete" placeholder="输入替换的元素">
+    <input type="text" id="arr_deletenum" placeholder="输入想要替换的元素的位置">
+    <input type="button" id="arr_delete_button" value="点击生成新数组">
+    <input type="text" id="arr_showdelete"><br>
 </body>
 <script type="text/javascript">
     //数组排序
@@ -91,29 +100,36 @@
         var tempArr = str.split(",");
         return tempArr;
     }
-
-
     arrAddBut.onclick = function () {
 
         if(arrInitial.value == ""||arrAdd.value == ""||arrAddNum.value == ""){
             alert("请完善输入的信息！");
             return;
         }else{
-            console.log(arrInitial.value);
-            console.log(typeof arrAdd.value);
-            console.log(typeof arrAddNum.value);
             var tempArr = getArr(arrInitial.value);
             console.log(tempArr);
-            var arr2 = tempArr.splice(arrAddNum.value,1,arrAdd.value);
-            console.log(arr2);
+            var arr2 = tempArr.splice(arrAddNum.value-1,0,arrAdd.value);
+            return arrShowAdd.value = tempArr;
         }
     }
     
-    
-    
-    
-    
-    
+    //删(替换)
+    var arrInitial2 = document.getElementById("arr_initial2");
+    var arrDelete  = document.getElementById("arr_delete");
+    var arrDeleteNum = document.getElementById("arr_deletenum");
+    var arrDeleteBut = document.getElementById("arr_delete_button");
+    var arrShowDelete = document.getElementById("arr_showdelete");
+
+    arrDeleteBut.onclick = function () {
+        if(arrInitial2.value == ""||arrDelete.value == ""||arrDeleteNum.value == ""){
+            alert("请完善输入的信息！");
+            return;
+        }else{
+            var tempArr = arrInitial2.value.split(",");
+            var arr3 = tempArr.splice(arrDeleteNum.value-1,1,arrDelete.value);
+            return arrShowDelete.value = tempArr;
+        }
+    }
     
     
     
